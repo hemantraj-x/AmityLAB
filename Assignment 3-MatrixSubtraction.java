@@ -1,6 +1,6 @@
 class MatrixSubtraction {
-    int[][] a = {{8, 6}, {4, 2}};
-    int[][] b = {{1, 2}, {3, 4}};
+    int[][] a = {{4, 6}, {7, 2}};
+    int[][] b = {{8, 2}, {3, 4}};
     int[][] c = new int[2][2];
 
     void subtract() {
