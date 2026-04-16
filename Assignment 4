@@ -1,6 +1,4 @@
 import java.util.Scanner;
-
-// Abstract class
 abstract class AbstractProduct {
     int product_id;
     String name;
@@ -15,7 +13,6 @@ abstract class AbstractProduct {
     abstract void display();
 }
 
-// Product class
 class Product extends AbstractProduct {
     double price;
 
@@ -32,7 +29,6 @@ class Product extends AbstractProduct {
     }
 }
 
-// Book class
 class Book extends Product {
     String isbn, author, title;
 
@@ -52,7 +48,6 @@ class Book extends Product {
     }
 }
 
-// TravelGuide class
 class TravelGuide extends Book {
     String country;
 
@@ -68,7 +63,6 @@ class TravelGuide extends Book {
     }
 }
 
-// CompactDisc class
 class CompactDisc extends Product {
     String artist, title;
 
@@ -86,12 +80,10 @@ class CompactDisc extends Product {
     }
 }
 
-// Main class
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        // Input TravelGuide
         System.out.println("Enter Travel Guide Details:");
         System.out.print("Product ID: ");
         int id = sc.nextInt();
@@ -121,7 +113,6 @@ public class Main {
 
         TravelGuide tg = new TravelGuide(id, name, desc, price, isbn, author, title, country);
 
-        // Input CompactDisc
         System.out.println("\nEnter Compact Disc Details:");
         System.out.print("Product ID: ");
         int cd_id = sc.nextInt();
@@ -145,7 +136,6 @@ public class Main {
 
         CompactDisc cd = new CompactDisc(cd_id, cd_name, cd_desc, cd_price, artist, cd_title);
 
-        // Display
         System.out.println("\n--- Travel Guide Details ---");
         tg.display();
 
