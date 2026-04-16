@@ -1,0 +1,157 @@
+import java.util.Scanner;
+
+// Abstract class
+abstract class AbstractProduct {
+    int product_id;
+    String name;
+    String description;
+
+    AbstractProduct(int product_id, String name, String description) {
+        this.product_id = product_id;
+        this.name = name;
+        this.description = description;
+    }
+
+    abstract void display();
+}
+
+// Product class
+class Product extends AbstractProduct {
+    double price;
+
+    Product(int product_id, String name, String description, double price) {
+        super(product_id, name, description);
+        this.price = price;
+    }
+
+    void display() {
+        System.out.println("Product ID: " + product_id);
+        System.out.println("Name: " + name);
+        System.out.println("Description: " + description);
+        System.out.println("Price: " + price);
+    }
+}
+
+// Book class
+class Book extends Product {
+    String isbn, author, title;
+
+    Book(int product_id, String name, String description, double price,
+         String isbn, String author, String title) {
+        super(product_id, name, description, price);
+        this.isbn = isbn;
+        this.author = author;
+        this.title = title;
+    }
+
+    void display() {
+        super.display();
+        System.out.println("ISBN: " + isbn);
+        System.out.println("Author: " + author);
+        System.out.println("Title: " + title);
+    }
+}
+
+// TravelGuide class
+class TravelGuide extends Book {
+    String country;
+
+    TravelGuide(int product_id, String name, String description, double price,
+                String isbn, String author, String title, String country) {
+        super(product_id, name, description, price, isbn, author, title);
+        this.country = country;
+    }
+
+    void display() {
+        super.display();
+        System.out.println("Country: " + country);
+    }
+}
+
+// CompactDisc class
+class CompactDisc extends Product {
+    String artist, title;
+
+    CompactDisc(int product_id, String name, String description, double price,
+                String artist, String title) {
+        super(product_id, name, description, price);
+        this.artist = artist;
+        this.title = title;
+    }
+
+    void display() {
+        super.display();
+        System.out.println("Artist: " + artist);
+        System.out.println("Title: " + title);
+    }
+}
+
+// Main class
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        // Input TravelGuide
+        System.out.println("Enter Travel Guide Details:");
+        System.out.print("Product ID: ");
+        int id = sc.nextInt();
+        sc.nextLine();
+
+        System.out.print("Name: ");
+        String name = sc.nextLine();
+
+        System.out.print("Description: ");
+        String desc = sc.nextLine();
+
+        System.out.print("Price: ");
+        double price = sc.nextDouble();
+        sc.nextLine();
+
+        System.out.print("ISBN: ");
+        String isbn = sc.nextLine();
+
+        System.out.print("Author: ");
+        String author = sc.nextLine();
+
+        System.out.print("Title: ");
+        String title = sc.nextLine();
+
+        System.out.print("Country: ");
+        String country = sc.nextLine();
+
+        TravelGuide tg = new TravelGuide(id, name, desc, price, isbn, author, title, country);
+
+        // Input CompactDisc
+        System.out.println("\nEnter Compact Disc Details:");
+        System.out.print("Product ID: ");
+        int cd_id = sc.nextInt();
+        sc.nextLine();
+
+        System.out.print("Name: ");
+        String cd_name = sc.nextLine();
+
+        System.out.print("Description: ");
+        String cd_desc = sc.nextLine();
+
+        System.out.print("Price: ");
+        double cd_price = sc.nextDouble();
+        sc.nextLine();
+
+        System.out.print("Artist: ");
+        String artist = sc.nextLine();
+
+        System.out.print("Title: ");
+        String cd_title = sc.nextLine();
+
+        CompactDisc cd = new CompactDisc(cd_id, cd_name, cd_desc, cd_price, artist, cd_title);
+
+        // Display
+        System.out.println("\n--- Travel Guide Details ---");
+        tg.display();
+
+        System.out.println("\n--- Compact Disc Details ---");
+        cd.display();
+
+        sc.close();
+    }
+}
